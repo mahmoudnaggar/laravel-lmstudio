@@ -14,7 +14,7 @@
 
 3. **Configure environment:**
    ```env
-   LMSTUDIO_BASE_URL=http://localhost:1234/v1
+   LMSTUDIO_BASE_URL=http://localhost:1234/v1/
    LMSTUDIO_DEFAULT_MODEL=llama-3.2-3b-instruct
    ```
 
