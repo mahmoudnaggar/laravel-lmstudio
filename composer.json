@@ -1,0 +1,67 @@
+{
+    "name": "mahmoudnaggar/laravel-lmstudio",
+    "description": "Advanced LM Studio integration for Laravel - Run local LLMs with OpenAI-compatible API, model management, streaming, embeddings, and more",
+    "keywords": [
+        "laravel",
+        "lm-studio",
+        "lmstudio",
+        "local-llm",
+        "ai",
+        "llama",
+        "mistral",
+        "phi",
+        "local-ai",
+        "openai-compatible",
+        "machine-learning",
+        "embeddings",
+        "streaming"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mahmoud Naggar",
+            "email": "mahmoud@example.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0|^11.0",
+        "illuminate/http": "^10.0|^11.0",
+        "illuminate/console": "^10.0|^11.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0",
+        "phpunit/phpunit": "^10.0",
+        "mockery/mockery": "^1.5",
+        "laravel/pint": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MahmoudNaggar\\LaravelLMStudio\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MahmoudNaggar\\LaravelLMStudio\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MahmoudNaggar\\LaravelLMStudio\\LMStudioServiceProvider"
+            ],
+            "aliases": {
+                "LMStudio": "MahmoudNaggar\\LaravelLMStudio\\Facades\\LMStudio"
+            }
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "format": "vendor/bin/pint"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
