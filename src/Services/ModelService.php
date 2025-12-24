@@ -26,14 +26,17 @@ class ModelService
             $response = $this->client->get('models');
             $data = json_decode($response->getBody()->getContents(), true);
 
-            return collect($data['data'] ?? [])
-                ->map(fn($model) => [
+            $models = [];
+            foreach ($data['data'] ?? [] as $model) {
+                $models[] = [
                     'id' => $model['id'],
                     'object' => $model['object'] ?? 'model',
                     'created' => $model['created'] ?? null,
                     'owned_by' => $model['owned_by'] ?? 'lmstudio',
-                ])
-                ->toArray();
+                ];
+            }
+
+            return $models;
         } catch (GuzzleException $e) {
             throw new LMStudioException("Failed to list models: " . $e->getMessage(), 0, $e);
         }
@@ -112,8 +115,6 @@ class ModelService
      */
     public function ids(): array
     {
-        return collect($this->list())
-            ->pluck('id')
-            ->toArray();
+        return array_column($this->list(), 'id');
     }
 }
