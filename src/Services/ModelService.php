@@ -26,6 +26,11 @@ class ModelService
             $response = $this->client->get('models');
             $data = json_decode($response->getBody()->getContents(), true);
 
+            // Debug output
+            error_log("LM Studio API Response: " . json_encode($data));
+            error_log("Data array exists: " . (isset($data['data']) ? 'yes' : 'no'));
+            error_log("Data array count: " . count($data['data'] ?? []));
+
             $models = [];
             foreach ($data['data'] ?? [] as $model) {
                 $models[] = [
@@ -35,6 +40,9 @@ class ModelService
                     'owned_by' => $model['owned_by'] ?? 'lmstudio',
                 ];
             }
+
+            error_log("Processed models count: " . count($models));
+            error_log("Processed models: " . json_encode($models));
 
             return $models;
         } catch (GuzzleException $e) {

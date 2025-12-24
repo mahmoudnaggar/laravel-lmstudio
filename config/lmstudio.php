@@ -10,7 +10,7 @@ return [
     | Make sure LM Studio is running and the local server is enabled.
     |
     */
-    'base_url' => env('LMSTUDIO_BASE_URL', 'http://localhost:1234/v1'),
+    'base_url' => env('LMSTUDIO_BASE_URL', 'http://localhost:1234/v1/'),
 
     /*
     |--------------------------------------------------------------------------
